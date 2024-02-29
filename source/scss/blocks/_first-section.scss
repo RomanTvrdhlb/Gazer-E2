@@ -1,0 +1,113 @@
+.first-section{
+    overflow: hidden;
+    position: relative;
+    height: clamp(571px, 78.0028vw, 1117px);
+
+    &__box{
+        padding: clamp(15px, 12.7095vw, 182px) 0 clamp(22px, 7.7514vw, 111px);
+        display: flex;
+        flex-direction: column;
+        grid-gap: clamp(58px, 5.9358vw, 85px);
+        position: relative;
+
+        @include desktop{
+            padding-top: clamp(15px, 6.944vw, 100px);
+        }
+
+        @include small-tablet{
+            height: 100%;
+            justify-content: flex-end;
+            text-align: center;
+
+            h1.main-title{
+                position: absolute;
+                top: 17px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 110%;
+                br{
+                    display: none;
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 100vw;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: rgba(var(--bg-b),1.0);
+                    height: 90px;
+                    z-index: -2;
+                    top: -60px;
+                }
+
+                &::after{
+                    position: absolute;
+                    content: '';
+                    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+                    width: 100vw;
+                    height: 234px;
+                    z-index: 0;
+                    pointer-events: none;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 25px;
+                    z-index: -1;
+                }
+            }
+        }
+
+        @include mobile{
+            h1.main-title{
+                &::before{
+                    top: -75px;
+                }
+
+                &::after{
+                    top: 13px;
+                }
+            }
+        }
+    }
+
+    &::before{
+        position: absolute;
+        content: '';
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+        width: 100%;
+        height: 368px;
+        z-index: 0;
+        pointer-events: none;
+        left: 0;
+        bottom: 0;
+
+        @include mobile{
+            height: 486px;
+        }
+    }
+
+    &__bg{
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        img,picture{
+            width: 100%;
+            height: 100%;
+
+            @media (min-width: (1750px)) {
+                object-position: 50% 20%;
+              }
+
+            @include mobile{
+                object-position: 50% 5%;
+            }
+        }
+    }
+
+    @include small-tablet{
+        .container{
+            height: 100%;
+        }
+    }
+}
